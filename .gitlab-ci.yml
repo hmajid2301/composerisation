@@ -1,0 +1,11 @@
+image: python:3.6-stretch
+
+stages:
+- test
+- build
+- publish
+
+lint:
+  stage: test
+  script:
+  - echo ''
