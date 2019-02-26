@@ -1,0 +1,20 @@
+version: "3.5"
+
+services:
+  web_server:
+    container_name nginx
+    context: .
+    build:
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - 80:80
+    depends_on:
+      - app
+
+volumes:
+  db_volume:
+
+networks:
+  hostnet:
+    external: true
+    name: host

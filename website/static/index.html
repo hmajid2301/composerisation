@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Architects+Daughter"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="stylesheets/stylesheet.css"
+      media="screen"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="stylesheets/pygment_trac.css"
+      media="screen"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="stylesheets/print.css"
+      media="print"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="stylesheets/prism.css"
+      rel="stylesheet"
+    />
+
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Composerisation</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Composerisation</h1>
+        <h2>A CLI tool to convert between docker-compose and Docker CLI.</h2>
+        <a href="https://gitlab.com/hmajid2301/composerisation" class="button"
+          ><small>View project on</small> GitLab</a
+        >
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>Installation</h1>
+
+          <pre><code> pip install composerisation</code></pre>
+
+          <h1>Usage</h1>
+          <pre>
+            <code class="language-bash">{{ usage }}</code>
+        </pre>
+          <h1>Demo</h1>
+
+          <p>Docker Compose (edit below)</p>
+          <input id="submit" type="submit" value="Convert" />
+          <pre contenteditable>
+            <code id="yaml" class="language-yaml">{{ yaml }}</code>
+          </pre>
+
+          <p>Docker CLI</p>
+          <pre>
+            <code id="bash" class="language-bash">{{ bash }}</code>
+          </pre>
+        </section>
+
+        <aside id="sidebar">
+          <a
+            href="https://gitlab.com/hmajid2301/composerisation/-/archive/master/composerisation-master.zip"
+            class="button"
+          >
+            <small>Download</small>
+            .zip file
+          </a>
+          <p class="repo-owner">
+            <a href="https://gitlab.com/hmajid2301/composerisation"
+              >composerisation</a
+            >
+            is maintained by
+            <a href="https://github.com/hmajid2301">hmajid2301</a>.
+          </p>
+          <p>
+            Architect theme by
+            <a href="https://twitter.com/jasonlong">Jason Long</a>.
+          </p>
+        </aside>
+      </div>
+    </div>
+    <script src="javascript/prism.js"></script>
+    <script src="javascript/editable.js"></script>
+    <script src="javascript/request.js"></script>
+  </body>
+</html>

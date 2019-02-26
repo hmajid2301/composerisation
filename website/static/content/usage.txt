@@ -1,0 +1,12 @@
+
+Usage: composerisation [OPTIONS]
+
+  Converts docker-compose files to Docker comamnds.
+
+Options:
+  -i, --input-file TEXT           Path to file to convert from docker-compose
+                                  to Docker.  [required]
+
+  -l, --log-level [DEBUG|INFO|ERROR|CRITICAL]
+                                  Log level for the script.
+  --help                          Show this message and exi
