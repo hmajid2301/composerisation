@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="composerisation",
-    version="0.1.0-beta.1",
+    version="0.1.0-beta.2",
     description="A tool used to convert between Docker compose and Docker run.",
     author="Haseeb Majid",
     author_email="hello@haseebmajid.dev",

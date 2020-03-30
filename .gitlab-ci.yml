@@ -97,3 +97,15 @@ publish-package:production:
     - pip install tox
     - make pypi-check
     - make pypi-upload
+
+production:
+  stage: publish
+  # only:
+  #   - /^release/.*$/
+  image: ruby:latest
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - cd website
+    - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY

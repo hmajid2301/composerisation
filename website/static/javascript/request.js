@@ -4,13 +4,13 @@ button.addEventListener("click", async _ => {
   let message = "Failed to convert docker-compose to Docker cli.";
 
   try {
-    const response = await fetch("http://localhost:8000/docker/compose", {
+    const response = await fetch("/docker/compose", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ docker_compose: yaml.innerHTML })
+      body: JSON.stringify({ docker_compose: yaml.innerText })
     });
     if (response.status == 200) {
       const data = await response.json();

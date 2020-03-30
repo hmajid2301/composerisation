@@ -14,6 +14,7 @@ yaml = open("static/content/yaml.txt").read()
 
 @app.route("/")
 def main():
+    print(request.script_root)
     return render_template("index.html", usage=usage, yaml=yaml, bash=bash)
 
 
