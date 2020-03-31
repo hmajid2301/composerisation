@@ -1,5 +1,4 @@
-composerisation
-git+https://gitlab.com/hmajid2301/composerisation.git@#composerisation
+-e git+https://gitlab.com/hmajid2301/composerisation.git#egg=composerisation
 click
 Flask
 gunicorn
