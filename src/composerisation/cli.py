@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 @click.option(
     "--log-level",
     "-l",
-    default="CRITICAL",
+    default="DEBUG",
     type=click.Choice(["DEBUG", "INFO", "ERROR", "CRITICAL"]),
     help="Log level for the script.",
 )
@@ -62,7 +62,7 @@ def get_docker_compose(input_file: click.File) -> dict:
     """
     logger.info(f"Opening docker-compose file")
     try:
-        data = input_file.read() if sys.stdin.isatty() else "".join(sys.stdin.readlines())
+        data = "".join(sys.stdin.readlines()) if input_file.name == "<stdin>" else input_file.read()
         docker_compose = yaml.load(data, Loader=yaml.SafeLoader)
     except yaml.YAMLError as e:
         error_message = f"Invalid yaml file, {input_file.name}."
