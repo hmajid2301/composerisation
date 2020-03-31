@@ -1,6 +1,3 @@
-import os
-import uuid
-
 from click.testing import CliRunner
 from flask import Flask, jsonify, request, render_template
 from composerisation.cli import cli
@@ -20,16 +17,11 @@ def main():
 
 @app.route("/docker/compose", methods=["POST"])
 def docker_compose_to_docker_cli():
-    unique_filename = uuid.uuid4().hex
     data = request.get_json()
-    with open(unique_filename, "w") as tmp_compose:
-        docker_compose_data = data["docker_compose"]
-        tmp_compose.write(docker_compose_data)
-
+    docker_compose_data = data["docker_compose"]
     runner = CliRunner()
-    result = runner.invoke(cli, ["-i", unique_filename])
+    result = runner.invoke(cli, args=["-l", "DEBUG"], input=docker_compose_data)
     response = {"docker_cli": result.stdout}
-    os.remove(unique_filename)
     return jsonify(response)
 
 

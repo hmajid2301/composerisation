@@ -60,15 +60,17 @@ def get_docker_compose(input_file: click.File) -> dict:
         dict: Contents of the docker-compose file.
 
     """
-    logger.info(f"Opening docker-compose file, {input_file.name}")
+    logger.info(f"Opening docker-compose file")
     try:
-        docker_compose = yaml.load(input_file.read(), Loader=yaml.FullLoader)
+        data = input_file.read() if sys.stdin.isatty() else "".join(sys.stdin.readlines())
+        docker_compose = yaml.load(data, Loader=yaml.SafeLoader)
     except yaml.YAMLError as e:
         error_message = f"Invalid yaml file, {input_file.name}."
         logger.error(f"error_message, {e}")
         click.echo(error_message, err=True)
         sys.exit(1)
 
+    logger.info(f"Retrieved docker compose data")
     return docker_compose
 
 

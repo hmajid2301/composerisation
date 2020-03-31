@@ -9,8 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0-beta.2] - 2020-03-30
 ### Added
-- Initial Release.
-- Convert docker-compose to Docker CLI syntax.
+- Added heroku to deploy the website to.
 
 ## [0.1.0-beta.1] - 2020-03-30
 ### Added

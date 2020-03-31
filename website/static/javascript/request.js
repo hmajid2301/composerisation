@@ -12,11 +12,14 @@ button.addEventListener("click", async _ => {
       },
       body: JSON.stringify({ docker_compose: yaml.innerText })
     });
+    console.log(response);
     if (response.status == 200) {
       const data = await response.json();
+      console.log(data);
       message = data.docker_cli;
     }
   } catch (err) {
+    console.log(err);
     message = err;
   }
   document.getElementById("bash").innerText = message;
