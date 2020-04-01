@@ -45,7 +45,7 @@ def cli(input_file: str, log_level: str) -> list:
         click.echo(error_message, err=True)
         sys.exit(1)
 
-    commands = ["# Start Commands: ", ""] + start_commands + ["", "# Delete Commands: ", ""] + delete_commands
+    commands = ["", "# Start Commands: ", ""] + start_commands + ["", "# Delete Commands: ", ""] + delete_commands
     click.echo("\n".join(commands))
 
 

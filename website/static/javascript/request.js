@@ -22,5 +22,7 @@ button.addEventListener("click", async _ => {
     console.log(err);
     message = err;
   }
-  document.getElementById("bash").innerText = message;
+  console.log(message);
+  const bash = document.getElementById("bash");
+  bash.innerHTML = Prism.highlight(message, Prism.languages.bash, "bash");
 });
