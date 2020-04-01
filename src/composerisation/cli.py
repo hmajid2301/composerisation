@@ -60,7 +60,7 @@ def get_docker_compose(input_file: click.File) -> dict:
         dict: Contents of the docker-compose file.
 
     """
-    logger.info(f"Opening docker-compose file")
+    logger.info(f"Opening docker-compose file.")
     try:
         data = "".join(sys.stdin.readlines()) if input_file.name == "<stdin>" else input_file.read()
         docker_compose = yaml.load(data, Loader=yaml.SafeLoader)
@@ -70,7 +70,7 @@ def get_docker_compose(input_file: click.File) -> dict:
         click.echo(error_message, err=True)
         sys.exit(1)
 
-    logger.info(f"Retrieved docker compose data")
+    logger.info(f"Retrieved docker compose data.")
     return docker_compose
 
 
@@ -87,9 +87,7 @@ def get_docker_start_commands(docker_compose: dict) -> list:
     """
     logger.info(f"Converting docker-compose to commands required to start your docker container.")
     start_commands = []
-    logger.info(f"{start_commands}")
     default_name = os.path.basename(os.getcwd())
-    logger.info(f"{default_name}")
     default_network_name = f"{default_name}_network"
     networks_data = docker_compose.get("networks", {})
     networks_data[default_network_name] = {"driver": "bridge"}
