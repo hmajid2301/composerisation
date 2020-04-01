@@ -87,7 +87,9 @@ def get_docker_start_commands(docker_compose: dict) -> list:
     """
     logger.info(f"Converting docker-compose to commands required to start your docker container.")
     start_commands = []
+    logger.info(f"{start_commands}")
     default_name = os.path.basename(os.getcwd())
+    logger.info(f"{default_name}")
     default_network_name = f"{default_name}_network"
     networks_data = docker_compose.get("networks", {})
     networks_data[default_network_name] = {"driver": "bridge"}
