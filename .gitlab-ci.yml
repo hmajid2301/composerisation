@@ -99,7 +99,7 @@ publish-package:production:
     - make pypi-upload
 
 publish:website:
-  stage: production
+  stage: publish
   image: ubuntu:18.04
   # only:
   #   - /^release/.*$/
