@@ -51,7 +51,7 @@ You can also use the docker image to convert between docker-compose and Docker c
 
 .. code-block :: bash
 
-  docker run -v ${PWD}/docker-compose.yml:/app/docker-compose.yml composerisation
+  docker run -v ${PWD}/tests/data/1.yml:/app/docker-compose.yml composerisation
 
 Supported Command
 =================

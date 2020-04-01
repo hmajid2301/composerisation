@@ -8,10 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Added an extra whitespace at before "# Start Commands". This helps with rendering on website.
+- Docker example updated.
 
 ### Fixed
 - Prism not rendering after AJAX request/response on demo website.
 - Fixed indented first line in Docker CLI block.
+
+### Removed
+- Example `docker-compose.yml` from root.
 
 ## [0.1.0-beta.3] - 2020-03-31
 ### Changed
