@@ -1,3 +1,5 @@
+__VERSION__ = "0.1.0-beta.3"
+
 import logging
 import os
 import sys
