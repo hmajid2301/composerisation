@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- `appengine_config.py` to import installed python dependencies.
+
 ### Changed
 - Added an extra whitespace at before "# Start Commands". This helps with rendering on website.
 - Docker example updated.
@@ -13,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Prism not rendering after AJAX request/response on demo website.
 - Fixed indented first line in Docker CLI block.
+- Deploy website correctly, install pip dependencies first in lib.
 
 ### Removed
 - Example `docker-compose.yml` from root.
