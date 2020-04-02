@@ -38,6 +38,11 @@
       rel="stylesheet"
     />
 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -61,7 +66,7 @@
         <section id="main-content">
           <h1>Installation</h1>
 
-          <pre><code> pip install composerisation</code></pre>
+          <pre><code class="language-bash">pip install composerisation</code></pre>
 
           <h1>Usage</h1>
           <pre>
@@ -70,8 +75,8 @@
           <h1>Demo</h1>
 
           <h3>Docker Compose (edit below)</h3>
-          <pre contenteditable>
-            <code id="yaml" class="language-yaml">{{ yaml }}</code>
+          <pre>
+            <code id="yaml" class="language-yaml" contenteditable>{{ yaml }}</code>
           </pre>
           <input id="submit" type="submit" value="Convert" />
 
@@ -104,7 +109,6 @@
       </div>
     </div>
     <script src="javascript/prism.js"></script>
-    <script src="javascript/editable.js"></script>
     <script src="javascript/request.js"></script>
   </body>
 </html>

@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `appengine_config.py` to import installed python dependencies.
 - Version tags to `cli.py` and `Dockerfile`.
+- Favicons to website.
+- New app logo.
 
 ### Changed
 - Added an extra whitespace at before "# Start Commands". This helps with rendering on website.

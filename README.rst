@@ -18,7 +18,17 @@
 composerisation
 ===============
 
-A CLI tool used to convert between docker-compose to normal Docker CLI commands.
+A CLI tool used to convert between docker-compose to normal Docker CLI commands. 
+
+.. image:: images/logo.png
+
+> Warning: This project is still in beta.
+
+Demo
+----
+
+Instead of dowloading the tool you can use the `demo website <https://composerisation.haseebmajid.dev>`_. Simply paste
+your `docker-compose.yml` file and press convert then copy the contents from the second input box.
 
 Usage
 -----
@@ -36,7 +46,7 @@ Options:
   -i, --input-file TEXT           Path to file to convert from docker-compose
                                   to Docker.  [required]
 
-  -l, --log-level [DEBUG|INFO|ERROR|CRITICAL]
+  -l, --log-level                 [DEBUG|INFO|ERROR|CRITICAL]
                                   Log level for the script.
   --help                          Show this message and exit
 
@@ -56,8 +66,7 @@ You can also use the docker image to convert between docker-compose and Docker c
 Supported Command
 =================
 
-We support all commands specified in the docker-compose reference file version 3.7
-`here <https://docs.docker.com/compose/compose-file/#reference-and-guidelines>_`.
+We support all commands specified in the docker-compose `reference file version 3.7 here <https://docs.docker.com/compose/compose-file/#reference-and-guidelines>`_.
 Besides from the config options defined below.
 
 Services
@@ -92,10 +101,8 @@ Changelog
 
 You can find the `changelog here <https://gitlab.com/hmajid2301/composerisation/blob/master/CHANGELOG.md>`_.
 
-credit: https://www.kissclipart.com/docker-compose-clipart-docker-software-deployment-hy6g1u/
-
 Appendix
 ========
 
-- docker-compose example taken from `here <https://github.com/DataDog/docker-compose-example>_`
-- Editable code area from `wales <https://jsfiddle.net/wales/2azkLnad/>_`
+- docker-compose example taken from `here <https://github.com/DataDog/docker-compose-example>`_
+- Editable code area from `wales <https://jsfiddle.net/wales/2azkLnad/>`_
