@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.1.0-beta.4] - 2020-04-02
 ### Added
 - `appengine_config.py` to import installed python dependencies.
 - Version tags to `cli.py` and `Dockerfile`.
@@ -20,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Prism not rendering after AJAX request/response on demo website.
 - Fixed indented first line in Docker CLI block.
 - Deploy website correctly, install pip dependencies first in lib.
+- Missing `rst` description in `setup.py`.
 
 ### Removed
 - Example `docker-compose.yml` from root.
@@ -40,7 +43,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial Release.
 - Convert docker-compose to Docker CLI syntax.
 
-[Unreleased]: https://gitlab.com/hmajid2301/composerisation/-/compare/release%2F0.1.0-beta.3...master
-[0.1.0-beta.2]: https://gitlab.com/hmajid2301/composerisation/-/tags/release%2F0.1.0-beta.3...release%2F0.1.0-beta.2
+[Unreleased]: https://gitlab.com/hmajid2301/composerisation/-/compare/release%2F0.1.0-beta.4...master
+[0.1.0-beta.4]: https://gitlab.com/hmajid2301/composerisation/-/tags/release%2F0.1.0-beta.3...release%2F0.1.0-beta.2
+[0.1.0-beta.3]: https://gitlab.com/hmajid2301/composerisation/-/tags/release%2F0.1.0-beta.3...release%2F0.1.0-beta.2
 [0.1.0-beta.2]: https://gitlab.com/hmajid2301/composerisation/-/tags/release%2F0.1.0-beta.2...release%2F0.1.0-beta.1
 [0.1.0-beta.1]: https://gitlab.com/hmajid2301/composerisation/-/tags/release%2F0.1.0-beta.1
