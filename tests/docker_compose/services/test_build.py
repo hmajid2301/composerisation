@@ -14,8 +14,8 @@ from composerisation.docker_compose.services.build import ServiceBuildParser
                 "shm_size": "2gb",
             },
             (
-                "docker build --build-arg 'buildno=1' --build-arg 'gitcommithash=cdc3b19' --cache-from 'alpine:latest'"
-                " --cache-from 'corp/web_app:3.14' --shm-size 2gb --tag build2 ."
+                'docker build --build-arg "buildno=1" --build-arg "gitcommithash=cdc3b19" --cache-from "alpine:latest"'
+                ' --cache-from "corp/web_app:3.14" --shm-size 2gb --tag build2 .'
             ),
         ),
         (
@@ -33,9 +33,9 @@ from composerisation.docker_compose.services.build import ServiceBuildParser
                 "target": "prod",
             },
             (
-                "docker build --file Dockerfile-alternate --build-arg 'buildno=1' --shm-size 10000000"
-                " --label 'com.example.description=Accounting webapp' --label 'com.example.department=Finance'"
-                " --label 'com.example.label-with-empty-value' --target prod --tag build1 ./dir"
+                'docker build --file ./dir/Dockerfile-alternate --build-arg "buildno=1" --shm-size 10000000'
+                ' --label "com.example.description=Accounting webapp" --label "com.example.department=Finance"'
+                ' --label "com.example.label-with-empty-value" --target prod --tag build1 ./dir'
             ),
         ),
         (
@@ -50,9 +50,9 @@ from composerisation.docker_compose.services.build import ServiceBuildParser
                 },
             },
             (
-                "docker build --cache-from 'alpine:latest' --cache-from 'corp/web_app:3.14' --build-arg 'buildno=1' --build-arg 'gitcommithash=cdc3b19'"
-                " --label 'com.example.description=Accounting webapp' --label 'com.example.department=Finance'"
-                " --label 'com.example.label-with-empty-value=' --tag build ."
+                'docker build --cache-from "alpine:latest" --cache-from "corp/web_app:3.14" --build-arg "buildno=1" --build-arg "gitcommithash=cdc3b19"'
+                ' --label "com.example.description=Accounting webapp" --label "com.example.department=Finance"'
+                ' --label "com.example.label-with-empty-value=" --tag build .'
             ),
         ),
     ],

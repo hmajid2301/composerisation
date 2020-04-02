@@ -8,7 +8,7 @@ from composerisation.docker_compose.networks.networks import NetworkParser
     [
         (
             {"example": {"driver": "foobar", "driver_opts": {"foo": "bar", "baz": 1}, "name": "my-network"}},
-            ["docker network create --driver foobar --opt 'foo=bar' --opt 'baz=1' --name my-network example"],
+            ['docker network create --driver foobar --opt "foo=bar" --opt "baz=1" --name my-network example'],
         ),
         (
             {
@@ -23,8 +23,8 @@ from composerisation.docker_compose.networks.networks import NetworkParser
             },
             [
                 "docker network create --internal network1",
-                "docker network create --label 'com.example.description=Financial transaction network'"
-                " --label 'com.example.department=Finance' --label 'com.example.label-with-empty-value' network2",
+                'docker network create --label "com.example.description=Financial transaction network"'
+                ' --label "com.example.department=Finance" --label "com.example.label-with-empty-value" network2',
             ],
         ),
         (

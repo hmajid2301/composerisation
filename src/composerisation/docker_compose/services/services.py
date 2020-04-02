@@ -176,7 +176,7 @@ class ServicesParser(Parser):
         command = self.config_options.get("command", "")
         if isinstance(command, list):
             command = " ".join(command)
-            command = f"'{command}'"
+            command = f'"{command}"'
 
         run_command = f"docker run {args} --detach {image_name} {command}".strip()
         return run_command

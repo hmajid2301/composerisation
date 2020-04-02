@@ -1,6 +1,7 @@
 const button = document.getElementById("submit");
-button.addEventListener("click", async _ => {
+button.addEventListener("click", async (_) => {
   const yaml = document.getElementById("yaml");
+  console.log(yaml.innerText);
   let message = "Failed to convert docker-compose to Docker cli.";
 
   try {
@@ -8,9 +9,9 @@ button.addEventListener("click", async _ => {
       method: "POST",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ docker_compose: yaml.innerText })
+      body: JSON.stringify({ docker_compose: yaml.innerText }),
     });
     console.log(response);
     if (response.status == 200) {
@@ -25,4 +26,27 @@ button.addEventListener("click", async _ => {
   console.log(message);
   const bash = document.getElementById("bash");
   bash.innerHTML = Prism.highlight(message, Prism.languages.bash, "bash");
+
+  copyToClipboard(bash);
+  showSnackBar();
 });
+
+function showSnackBar() {
+  const snackbar = document.getElementById("snackbar");
+  snackbar.className = "show";
+  setTimeout(function () {
+    snackbar.className = snackbar.className.replace("show", "");
+  }, 3000);
+}
+
+function copyToClipboard(bash) {
+  const element = document.createElement("textarea");
+  element.value = bash.innerText;
+  element.setAttribute("readonly", "");
+  element.style.position = "absolute";
+  element.style.left = "-9999px";
+  document.body.appendChild(element);
+  element.select();
+  document.execCommand("copy");
+  document.body.removeChild(element);
+}

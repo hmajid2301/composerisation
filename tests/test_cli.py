@@ -19,7 +19,7 @@ def test_success(runner, args, expected_output):
 @pytest.mark.parametrize(
     "args, expected_output",
     [
-        (["-i", "tests/data/invalid_option.yml"], "Invalid key context in web_server\n"),
+        (["-i", "tests/data/invalid_option.yml"], "Invalid key context in web_server.\n"),
         (["-i", "tests/data/invalid_yaml.yml"], "Invalid yaml file, tests/data/invalid_yaml.yml.\n",),
     ],
 )

@@ -24,10 +24,10 @@ from composerisation.docker_compose.volumes.volumes import VolumeParser
                 }
             },
             [
-                "docker volume create --driver foobar --opt 'type=nfs' --opt 'o=addr=10.40.0.199,nolock,soft,rw example'"
-                " --opt 'device=:/docker/example' --label 'com.example.description=Database volume'"
-                " --label 'com.example.department=IT/Ops' --label 'com.example.label-with-empty-value'"
-                " --name my-app-data example"
+                'docker volume create --driver foobar --opt "type=nfs"'
+                ' --opt "o=addr=10.40.0.199,nolock,soft,rw example" --opt "device=:/docker/example"'
+                ' --label "com.example.description=Database volume" --label "com.example.department=IT/Ops"'
+                ' --label "com.example.label-with-empty-value" --name my-app-data example'
             ],
         ),
     ],

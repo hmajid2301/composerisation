@@ -32,13 +32,13 @@ from composerisation.docker_compose.services.services import ServicesParser
                 },
             },
             [
-                "docker build --file docker/nginx/Dockerfile --tag composerisation_web_server .",
-                "docker run --name nginx --publish '80:80' --detach composerisation_web_server",
-                "docker build --file docker/flask/Dockerfile --tag composerisation_app .",
-                "docker run --name flask --restart always --env-file docker/database.conf --expose '8080'"
+                "docker build --file ./docker/nginx/Dockerfile --tag composerisation_web_server .",
+                'docker run --name nginx --publish "80:80" --detach composerisation_web_server',
+                "docker build --file ./docker/flask/Dockerfile --tag composerisation_app .",
+                'docker run --name flask --restart always --env-file docker/database.conf --expose "8080"'
                 " --detach composerisation_app",
-                "docker run --name postgres --env-file docker/database.conf --publish '5432:5432'"
-                " --volume 'db_volume:/var/lib/postgresql' --detach postgres:latest",
+                'docker run --name postgres --env-file docker/database.conf --publish "5432:5432"'
+                ' --volume "db_volume:/var/lib/postgresql" --detach postgres:latest',
             ],
         ),
         (
@@ -53,8 +53,8 @@ from composerisation.docker_compose.services.services import ServicesParser
                 }
             },
             [
-                "docker run --name postgres --env-file docker/database.conf --publish '5432:5432'"
-                " --volume 'db_volume:/var/lib/postgresql' --init --detach postgres:latest"
+                'docker run --name postgres --env-file docker/database.conf --publish "5432:5432"'
+                ' --volume "db_volume:/var/lib/postgresql" --init --detach postgres:latest'
             ],
         ),
         (
@@ -67,7 +67,7 @@ from composerisation.docker_compose.services.services import ServicesParser
                 }
             },
             [
-                "docker run --cap-add 'ALL' --cap-drop 'NET_ADMIN' --cap-drop 'SYS_ADMIN' --cgroup-parent "
+                'docker run --cap-add "ALL" --cap-drop "NET_ADMIN" --cap-drop "SYS_ADMIN" --cgroup-parent '
                 "m-executor-abcd --name composerisation_service1 --detach postgres:latest"
             ],
         ),
@@ -81,7 +81,7 @@ from composerisation.docker_compose.services.services import ServicesParser
                 }
             },
             [
-                "docker run --device '/dev/ttyUSB0:/dev/ttyUSB0' --dns '127.0.0.1' --dns-search example.com"
+                'docker run --device "/dev/ttyUSB0:/dev/ttyUSB0" --dns "127.0.0.1" --dns-search example.com'
                 " --name composerisation_service2 --detach postgres:latest"
             ],
         ),
@@ -95,7 +95,7 @@ from composerisation.docker_compose.services.services import ServicesParser
                 }
             },
             [
-                "docker run --device '/dev/ttyUSB0:/dev/ttyUSB0' --dns 127.0.0.1 --dns-search 'example.com'"
+                'docker run --device "/dev/ttyUSB0:/dev/ttyUSB0" --dns 127.0.0.1 --dns-search "example.com"'
                 " --name composerisation_service2 --detach postgres:latest"
             ],
         ),
@@ -121,8 +121,8 @@ from composerisation.docker_compose.services.services import ServicesParser
                 }
             },
             [
-                "docker run --env-file 'data/data.conf' --env-file 'other_data.conf' --environment"
-                " 'RACK_ENV=development' --name composerisation_service2 --detach postgres:latest"
+                'docker run --env-file "data/data.conf" --env-file "other_data.conf" --environment'
+                ' "RACK_ENV=development" --name composerisation_service2 --detach postgres:latest'
             ],
         ),
         (
@@ -135,7 +135,7 @@ from composerisation.docker_compose.services.services import ServicesParser
                 }
             },
             [
-                "docker run --add-host 'somehost:162.242.195.82' --add-host 'otherhost:50.31.209.229' --init"
+                'docker run --add-host "somehost:162.242.195.82" --add-host "otherhost:50.31.209.229" --init'
                 " --isolation process --name composerisation_service2 --detach postgres:latest"
             ],
         ),
@@ -154,8 +154,8 @@ from composerisation.docker_compose.services.services import ServicesParser
                 }
             },
             [
-                "docker run --label 'com.example.description=Accounting webapp' --label 'com.example.department=Finance'"
-                " --label 'com.example.label-with-empty-value' --link 'db' --link 'db:database' --link 'redis'"
+                'docker run --label "com.example.description=Accounting webapp" --label "com.example.department=Finance"'
+                ' --label "com.example.label-with-empty-value" --link "db" --link "db:database" --link "redis"'
                 " --network bridge --pid host --name composerisation_example --detach mysql:latest"
             ],
         ),
@@ -174,8 +174,8 @@ from composerisation.docker_compose.services.services import ServicesParser
                 }
             },
             [
-                "docker run --label 'com.example.description=Accounting webapp' --label 'com.example.department=Finance'"
-                " --label 'com.example.label-with-empty-value=' --link 'db' --link 'db:database' --link 'redis'"
+                'docker run --label "com.example.description=Accounting webapp" --label "com.example.department=Finance"'
+                ' --label "com.example.label-with-empty-value=" --link "db" --link "db:database" --link "redis"'
                 " --network bridge --pid host --name composerisation_example --detach mysql:latest"
             ],
         ),
@@ -190,8 +190,8 @@ from composerisation.docker_compose.services.services import ServicesParser
                 }
             },
             [
-                "docker run --security-opt 'label:user:USER' --security-opt 'label:role:ROLE' --stop-timeout 1s"
-                " --stop-signal SIGUSR1 --sysctl 'net.core.somaxconn=1024' --sysctl 'net.ipv4.tcp_syncookies=0'"
+                'docker run --security-opt "label:user:USER" --security-opt "label:role:ROLE" --stop-timeout 1s'
+                ' --stop-signal SIGUSR1 --sysctl "net.core.somaxconn=1024" --sysctl "net.ipv4.tcp_syncookies=0"'
                 " --name composerisation_example2 --detach mysql:latest"
             ],
         ),
@@ -205,7 +205,7 @@ from composerisation.docker_compose.services.services import ServicesParser
                 }
             },
             [
-                "docker run --tmpfs '/run' --tmpfs '/tmp' --ulimit nproc=65535 --ulimit nofile=20000:40000"
+                'docker run --tmpfs "/run" --tmpfs "/tmp" --ulimit nproc=65535 --ulimit nofile=20000:40000'
                 " --userns host --name composerisation_example2 --detach mysql:latest"
             ],
         ),
@@ -223,7 +223,7 @@ from composerisation.docker_compose.services.services import ServicesParser
         ),
         (
             {"example2": {"image": "mysql:latest", "command": ["/bin/bash", "tail", "-f", "log.log"]}},
-            ["docker run  --name composerisation_example2 --detach mysql:latest '/bin/bash tail -f log.log'"],
+            ['docker run  --name composerisation_example2 --detach mysql:latest "/bin/bash tail -f log.log"'],
         ),
         (
             {
@@ -242,9 +242,9 @@ from composerisation.docker_compose.services.services import ServicesParser
             },
             [
                 "docker run  --name composerisation_example2 --detach mysql:latest",
-                "docker network connect --driver-opt default --alias 'alias1' --alias 'alias2'"
+                'docker network connect --driver-opt default --alias "alias1" --alias "alias2"'
                 " --ip 172.16.238.10 --ip6 2001:3984:3989::10 some-network composerisation_example2",
-                "docker network connect --alias 'alias' other-network composerisation_example2",
+                'docker network connect --alias "alias" other-network composerisation_example2',
             ],
         ),
     ],

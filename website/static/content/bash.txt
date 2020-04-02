@@ -1,21 +1,20 @@
 
 # Start Commands: 
 
-docker network create --driver bridge composerisation_network
+docker network create --driver bridge website_network
 docker volume create  db_volume
-docker build --file docker/nginx/Dockerfile --tag composerisation_web_server .
-docker run --name nginx --publish '80:80' --network composerisation_network --detach composerisation_web_server
-docker build --file docker/flask/Dockerfile --tag composerisation_app .
-docker run --name flask --env-file docker/database.conf --expose '8080' --network composerisation_network --detach composerisation_app
-docker run --name postgres --env-file docker/database.conf --publish '5432:5432' --volume 'db_volume:/var/lib/postgresql' --network composerisation_network --detach postgres:latest
+docker build --file ./docker/nginx/Dockerfile --tag website_web_server .
+docker run --name nginx --publish "80:80" --network website_network --detach website_web_server
+docker build --file ./docker/flask/Dockerfile --tag website_app .
+docker run --name flask --env-file docker/database.conf --expose "8080" --network website_network --detach website_app
+docker run --name postgres --env-file docker/database.conf --publish "5432:5432" --volume "db_volume:/var/lib/postgresql" --network website_network --detach postgres:latest
 
 # Delete Commands: 
 
-docker network rm hostnet
-docker network rm composerisation_network
 docker stop nginx
 docker rm nginx
 docker stop flask
 docker rm flask
 docker stop postgres
 docker rm postgres
+docker network rm website_network

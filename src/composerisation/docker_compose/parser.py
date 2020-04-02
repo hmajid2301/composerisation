@@ -193,7 +193,7 @@ class Parser:
             config_val = self._convert_list_dict_to_list(config_val)
 
         for item in config_val:
-            args += f"{name} '{item}' "
+            args += f'{name} "{item}" '
 
         return args
 

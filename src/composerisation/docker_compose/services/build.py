@@ -48,14 +48,20 @@ class ServiceBuildParser(Parser):
     def __init__(self, service_name: str, build_config: dict):
         args = {
             "args": {"type": [list, dict], "name": "--build-arg"},
-            "dockerfile": {"type": [str], "name": "--file"},
             "cache_from": {"type": [list, dict], "name": "--cache-from"},
             "labels": {"type": [list, dict], "name": "--label"},
             "shm_size": {"type": [str], "name": "--shm-size"},
             "target": {"type": [str], "name": "--target"},
         }
         ignore_args = ["context"]
-        super().__init__(args=args, config_name=service_name, config_options=build_config, ignore_args=ignore_args)
+        special_args = {"dockerfile": self._parse_dockerfile}
+        super().__init__(
+            args=args,
+            config_name=service_name,
+            config_options=build_config,
+            ignore_args=ignore_args,
+            special_args=special_args,
+        )
 
     def get_command(self) -> str:
         """Converts the docker compose syntax to normal docker commands. The command will build a docker image.
@@ -68,3 +74,17 @@ class ServiceBuildParser(Parser):
         context = self.config_options.get("context", ".")
         build_command = f"docker build {args} --tag {self.config_name} {context}"
         return build_command
+
+    def _parse_dockerfile(self, dockerfile: str) -> str:
+        """For parsing any ``dockerfile`` option in ``docker-compose``.
+
+        Args:
+            dockerfile (str): The name of the Dockerfile.
+
+        Returns:
+            str: The equivalent cli arguments for docker commands for `dockerfile` option in docker-compose.
+
+        """
+        context = self.config_options.get("context", ".")
+        dockerfile = f"--file {context}/{dockerfile} "
+        return dockerfile

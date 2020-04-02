@@ -18,16 +18,16 @@ from composerisation.docker_compose.services.networks import ServiceNetworkParse
                 "other-network": {"aliases": ["alias"]},
             },
             [
-                "docker network connect --driver-opt default --alias 'alias1' --alias 'alias2'"
+                'docker network connect --driver-opt default --alias "alias1" --alias "alias2"'
                 " --ip 172.16.238.10 --ip6 2001:3984:3989::10 some-network container1",
-                "docker network connect --alias 'alias' other-network container1",
+                'docker network connect --alias "alias" other-network container1',
             ],
         ),
         (
             "container1",
             {"some-network": {"driver": "default", "aliases": ["alias1", "alias2"], "ipv4_address": "172.16.238.10"}},
             [
-                "docker network connect --driver-opt default --alias 'alias1' --alias 'alias2'"
+                'docker network connect --driver-opt default --alias "alias1" --alias "alias2"'
                 " --ip 172.16.238.10 some-network container1"
             ],
         ),

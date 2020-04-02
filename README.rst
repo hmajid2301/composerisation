@@ -22,7 +22,7 @@ A CLI tool used to convert between docker-compose to normal Docker CLI commands.
 
 .. image:: images/logo.png
 
-> Warning: This project is still in beta.
+**Warning**: This project is still in beta.
 
 Demo
 ----

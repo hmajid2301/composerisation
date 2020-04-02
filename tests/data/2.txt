@@ -2,15 +2,15 @@
 # Start Commands: 
 
 docker network create --driver bridge composerisation_network
-docker build --cache-from 'alpine:latest' --cache-from 'corp/web_app:3.14' --build-arg 'buildno=1' --build-arg 'gitcommithash=cdc3b19' --build-arg 'shm_size=2gb' --tag composerisation_web_server .
-docker run --name nginx --publish '80:80' --network composerisation_network --detach composerisation_web_server
-docker build --file Dockerfile-alternate --build-arg 'buildno=1' --shm-size 10000000 --label 'com.example.description=Accounting webapp' --label 'com.example.department=Finance' --label 'com.example.label-with-empty-value' --target prod --tag composerisation_webapp ./dir
+docker build --cache-from "alpine:latest" --cache-from "corp/web_app:3.14" --build-arg "buildno=1" --build-arg "gitcommithash=cdc3b19" --build-arg "shm_size=2gb" --tag composerisation_web_server .
+docker run --name nginx --publish "80:80" --network composerisation_network --detach composerisation_web_server
+docker build --file ./dir/Dockerfile-alternate --build-arg "buildno=1" --shm-size 10000000 --label "com.example.description=Accounting webapp" --label "com.example.department=Finance" --label "com.example.label-with-empty-value" --target prod --tag composerisation_webapp ./dir
 docker run --env-file docker/database.conf --network composerisation_network --name composerisation_webapp --detach composerisation_webapp
 
 # Delete Commands: 
 
-docker network rm composerisation_network
 docker stop nginx
 docker rm nginx
 docker stop composerisation_webapp
 docker rm composerisation_webapp
+docker network rm composerisation_network

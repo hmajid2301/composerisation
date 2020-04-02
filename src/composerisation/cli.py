@@ -1,4 +1,4 @@
-__VERSION__ = "0.1.0-beta.4"
+__VERSION__ = "0.1.1-beta.1"
 
 import logging
 import os
@@ -42,7 +42,7 @@ def cli(input_file: str, log_level: str) -> list:
         start_commands = get_docker_start_commands(docker_compose)
         delete_commands = get_docker_delete_commands(docker_compose)
     except exceptions.IncorrectConfigException as e:
-        error_message = f"Invalid key {e.incorrect_key} in {e.config_name}"
+        error_message = f"Invalid key {e.incorrect_key} in {e.config_name}."
         logger.error(error_message)
         click.echo(error_message, err=True)
         sys.exit(1)
@@ -138,12 +138,6 @@ def get_docker_delete_commands(docker_compose: dict) -> list:
     default_network_name = f"{default_name}_network"
     networks_data[default_network_name] = {"driver": "bridge", "name": default_network_name}
 
-    logger.info(f"Converting 'networks' sections to docker cli commands.")
-    for name, config in networks_data.items():
-        networks = NetworkParser(network_name=name, network_config=config)
-        command = networks.get_delete_command()
-        delete_commands.append(command)
-
     logger.info(f"Converting 'services' sections to docker cli commands.")
     services_data = docker_compose.get("services", {})
     for name, option in services_data.items():
@@ -153,6 +147,12 @@ def get_docker_delete_commands(docker_compose: dict) -> list:
         service = ServicesParser(service_name=name, service_options=option)
         command = service.get_delete_command()
         delete_commands += command
+
+    logger.info(f"Converting 'networks' sections to docker cli commands.")
+    for name, config in networks_data.items():
+        networks = NetworkParser(network_name=name, network_config=config)
+        command = networks.get_delete_command()
+        delete_commands.append(command)
 
     return delete_commands
 

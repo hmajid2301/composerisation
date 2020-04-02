@@ -71,18 +71,6 @@
           <h1>Usage</h1>
           <pre>
             <code class="language-bash">{{ usage }}</code>
-        </pre>
-          <h1>Demo</h1>
-
-          <h3>Docker Compose (edit below)</h3>
-          <pre>
-            <code id="yaml" class="language-yaml" contenteditable>{{ yaml }}</code>
-          </pre>
-          <input id="submit" type="submit" value="Convert" />
-
-          <h3>Docker CLI</h3>
-          <pre>
-            <code id="bash" class="language-bash">{{ bash }}</code>
           </pre>
         </section>
 
@@ -106,6 +94,24 @@
             <a href="https://twitter.com/jasonlong">Jason Long</a>.
           </p>
         </aside>
+      </div>
+
+      <div id="bottom">
+        <h1>Demo</h1>
+        <p>Edit the docker-compose file (on the left) then press "Convert".</p>
+
+        <input id="submit" type="submit" value="Convert" />
+        <div id="code">
+          <pre>
+          <code id="yaml" class="language-yaml" contenteditable>{{ yaml }}</code>
+        </pre>
+
+          <pre>
+          <code id="bash" class="language-bash">{{ bash }}</code>
+        </pre>
+
+          <div id="snackbar">Copied to clipboard</div>
+        </div>
       </div>
     </div>
     <script src="javascript/prism.js"></script>
