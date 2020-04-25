@@ -8,9 +8,8 @@
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Architects+Daughter"
       rel="stylesheet"
-      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Open+Sans"
     />
 
     <link
@@ -20,16 +19,12 @@
       media="screen"
     />
     <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Slab"
       rel="stylesheet"
-      type="text/css"
-      href="stylesheets/pygment_trac.css"
-      media="screen"
     />
     <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
       rel="stylesheet"
-      type="text/css"
-      href="stylesheets/print.css"
-      media="print"
     />
     <link
       rel="stylesheet"
@@ -51,70 +46,71 @@
   </head>
 
   <body>
-    <header>
-      <div class="inner">
-        <h1>Composerisation</h1>
-        <h2>A CLI tool to convert between docker-compose and Docker CLI.</h2>
-        <a href="https://gitlab.com/hmajid2301/composerisation" class="button"
-          ><small>View project on</small> GitLab</a
-        >
+    <a href="https://gitlab.com/hmajid2301/composerisation" target="_blank">
+      <span class="ribbon">Fork Me On GitLab</span>
+    </a>
+
+    <section class="home__cover full">
+      <div class="container cover__content">
+        <div class="cover__circle"></div>
+        <div class="cover__logo">
+          <img class="logo__image" src="/images/logo.png" alt="logo" />
+        </div>
+        <h1 class="cover__title h2-like">
+          A CLI tool to convert between Docker Compose and Docker CLI.
+        </h1>
       </div>
-    </header>
+    </section>
 
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h1>Installation</h1>
+          <blockquote>
+            Please note this website is just for demo purposes. The tool is
+            meant be used as a CLI tool. Hence this website being a it of a
+            "hack". The code isn't particularly clean however it should still
+            work.
+          </blockquote>
+
+          <h2 class="h2-like main__title">
+            <strong>Installation</strong>
+          </h2>
 
           <pre><code class="language-bash">pip install composerisation</code></pre>
 
-          <h1>Usage</h1>
+          <h2 class="h2-like main__title">
+            <strong>Usage</strong>
+          </h2>
           <pre>
             <code class="language-bash">{{ usage }}</code>
           </pre>
-        </section>
 
-        <aside id="sidebar">
-          <a
-            href="https://gitlab.com/hmajid2301/composerisation/-/archive/master/composerisation-master.zip"
-            class="button"
-          >
-            <small>Download</small>
-            .zip file
-          </a>
-          <p class="repo-owner">
-            <a href="https://gitlab.com/hmajid2301/composerisation"
-              >composerisation</a
+          <h2 class="h2-like main__title">
+            <strong>Demo</strong>
+          </h2>
+
+          <button type="button" class="btn ecosystem__button small" id="submit">
+            <div class="button__content"><span>Convert</span></div>
+          </button>
+          <div id="code">
+            <pre
+              onPaste="setTimeout(function() {reRunPrismJS();}, 0)"
+              id="yaml-editable"
+              contenteditable
             >
-            is maintained by
-            <a href="https://github.com/hmajid2301">hmajid2301</a>.
-          </p>
-          <p>
-            Architect theme by
-            <a href="https://twitter.com/jasonlong">Jason Long</a>.
-          </p>
-        </aside>
-      </div>
-
-      <div id="bottom">
-        <h1>Demo</h1>
-        <p>Edit the docker-compose file (on the left) then press "Convert".</p>
-
-        <input id="submit" type="submit" value="Convert" />
-        <div id="code">
-          <pre>
-          <code id="yaml" class="language-yaml" contenteditable>{{ yaml }}</code>
+          <code id="yaml" class="language-yaml">{{ yaml }}</code>
         </pre>
 
-          <pre>
+            <pre>
           <code id="bash" class="language-bash">{{ bash }}</code>
         </pre>
 
-          <div id="snackbar">Copied to clipboard</div>
-        </div>
+            <div id="snackbar">Copied to clipboard</div>
+          </div>
+        </section>
       </div>
     </div>
     <script src="javascript/prism.js"></script>
-    <script src="javascript/request.js"></script>
+    <script src="javascript/main.js"></script>
   </body>
 </html>

@@ -28,7 +28,9 @@ Demo
 ----
 
 Instead of dowloading the tool you can use the `demo website <https://composerisation.haseebmajid.dev>`_. Simply paste
-your `docker-compose.yml` file and press convert then copy the contents from the second input box.
+your ``docker-compose.yml`` file and press convert then copy the contents from the second input box.
+
+**Warning**: The website is only for demo purposes, the code isn't particularly clean. This is not a web service but a CLI tool
 
 Usage
 -----
@@ -106,3 +108,4 @@ Appendix
 
 - docker-compose example taken from `here <https://github.com/DataDog/docker-compose-example>`_
 - Editable code area from `wales <https://jsfiddle.net/wales/2azkLnad/>`_
+- Website inspired by `API Platform <https://api-platform.com/>_`.

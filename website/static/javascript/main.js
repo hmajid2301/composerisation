@@ -34,7 +34,7 @@ button.addEventListener("click", async (_) => {
 function showSnackBar() {
   const snackbar = document.getElementById("snackbar");
   snackbar.className = "show";
-  setTimeout(function () {
+  setTimeout(function() {
     snackbar.className = snackbar.className.replace("show", "");
   }, 3000);
 }
@@ -49,4 +49,13 @@ function copyToClipboard(bash) {
   element.select();
   document.execCommand("copy");
   document.body.removeChild(element);
+}
+
+function reRunPrismJS() {
+  const yamlEditable = document.getElementById("yaml-editable");
+  const dockerCompose = yamlEditable.innerText;
+  yamlEditable.innerHTML = "";
+  yamlEditable.innerHTML += '<code id="yaml" class="language-yaml"></code>';
+  const yaml = document.getElementById("yaml");
+  yaml.innerHTML = Prism.highlight(dockerCompose, Prism.languages.yaml, "yaml");
 }

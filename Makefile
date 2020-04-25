@@ -67,6 +67,10 @@ pypi-check:
 	make build-dist
 	@tox -e pypi-check
 
+.PHONY: run-website
+run-website:
+	@cd website && FLASK_APP=main.py flask run
+
 # prompt_example> make pypi OPTIONS="-- --repository-url https://test.pypi.org/legacy/"
 .PHONY: pypi-upload
 pypi-upload:
