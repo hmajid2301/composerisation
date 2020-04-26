@@ -20,7 +20,7 @@ composerisation
 
 A CLI tool used to convert between docker-compose to normal Docker CLI commands. 
 
-.. image:: images/logo.png
+.. image:: images/logo_background.png
 
 **Warning**: This project is still in beta.
 
