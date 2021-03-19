@@ -60,7 +60,10 @@ def test_get_start_networks_command(networks_data, expected_command):
                     ]
                 },
             },
-            ["docker network rm network1", "docker network rm network2",],
+            [
+                "docker network rm network1",
+                "docker network rm network2",
+            ],
         ),
         (
             {"network2": {"ipam": {"driver": "default", "config": {"subnet": "172.28.0.0/16"}}}},

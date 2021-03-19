@@ -62,7 +62,7 @@ def get_docker_compose(input_file: click.File) -> dict:
         dict: Contents of the docker-compose file.
 
     """
-    logger.info(f"Opening docker-compose file.")
+    logger.info("Opening docker-compose file.")
     try:
         data = "".join(sys.stdin.readlines()) if input_file.name == "<stdin>" else input_file.read()
         docker_compose = yaml.load(data, Loader=yaml.SafeLoader)
@@ -72,7 +72,7 @@ def get_docker_compose(input_file: click.File) -> dict:
         click.echo(error_message, err=True)
         sys.exit(1)
 
-    logger.info(f"Retrieved docker compose data.")
+    logger.info("Retrieved docker compose data.")
     return docker_compose
 
 
@@ -87,27 +87,27 @@ def get_docker_start_commands(docker_compose: dict) -> list:
         list: Of Docker cli commands to create the same environment as created by docker-compose.
 
     """
-    logger.info(f"Converting docker-compose to commands required to start your docker container.")
+    logger.info("Converting docker-compose to commands required to start your docker container.")
     start_commands = []
     default_name = os.path.basename(os.getcwd())
     default_network_name = f"{default_name}_network"
     networks_data = docker_compose.get("networks", {})
     networks_data[default_network_name] = {"driver": "bridge"}
 
-    logger.info(f"Converting 'networks' sections to docker cli commands.")
+    logger.info("Converting 'networks' sections to docker cli commands.")
     for name, config in networks_data.items():
         networks = NetworkParser(network_name=name, network_config=config)
         command = networks.get_start_command()
         start_commands.append(command)
 
-    logger.info(f"Converting 'volumes' sections to docker cli commands.")
+    logger.info("Converting 'volumes' sections to docker cli commands.")
     volumes_data = docker_compose.get("volumes", {})
     for name, config in volumes_data.items():
         volume = VolumeParser(volume_name=name, volume_config=config)
         command = volume.get_start_command()
         start_commands.append(command)
 
-    logger.info(f"Converting 'services' sections to docker cli commands.")
+    logger.info("Converting 'services' sections to docker cli commands.")
     services_data = docker_compose.get("services", {})
     for name, option in services_data.items():
         if "networks" not in option:
@@ -131,14 +131,14 @@ def get_docker_delete_commands(docker_compose: dict) -> list:
             connect to.
 
     """
-    logger.info(f"Converting docker-compose to commands required to delete your docker container.")
+    logger.info("Converting docker-compose to commands required to delete your docker container.")
     delete_commands = []
     networks_data = docker_compose.get("networks", {})
     default_name = os.path.basename(os.getcwd())
     default_network_name = f"{default_name}_network"
     networks_data[default_network_name] = {"driver": "bridge", "name": default_network_name}
 
-    logger.info(f"Converting 'services' sections to docker cli commands.")
+    logger.info("Converting 'services' sections to docker cli commands.")
     services_data = docker_compose.get("services", {})
     for name, option in services_data.items():
         if "networks" not in option:
@@ -148,7 +148,7 @@ def get_docker_delete_commands(docker_compose: dict) -> list:
         command = service.get_delete_command()
         delete_commands += command
 
-    logger.info(f"Converting 'networks' sections to docker cli commands.")
+    logger.info("Converting 'networks' sections to docker cli commands.")
     for name, config in networks_data.items():
         networks = NetworkParser(network_name=name, network_config=config)
         command = networks.get_delete_command()
