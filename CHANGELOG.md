@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
-## [0.1.2-beta.1] - 2021-03-17
+## [0.1.2] - 2021-03-17
 ### Changed
 - New website for demo. Looks a lot cleaner inspired by https://api-platform.com/. 
 - README we also support docker-compose version `3.8`.
@@ -57,8 +57,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial Release.
 - Convert docker-compose to Docker CLI syntax.
 
-[Unreleased]: https://gitlab.com/hmajid2301/composerisation/-/compare/release%2F0.1.2-beta.1...master
-[0.1.2-beta.1]: https://gitlab.com/hmajid2301/composerisation/-/tags/release%2F0.1.2-beta.1...release%2F0.1.1-beta.1
+[Unreleased]: https://gitlab.com/hmajid2301/composerisation/-/compare/release%2F0.1.2...master
+[0.1.2]: https://gitlab.com/hmajid2301/composerisation/-/tags/release%2F0.1.2...release%2F0.1.1-beta.1
 [0.1.1-beta.1]: https://gitlab.com/hmajid2301/composerisation/-/tags/release%2F0.1.1-beta.1...release%2F0.1.0-beta.4
 [0.1.0-beta.4]: https://gitlab.com/hmajid2301/composerisation/-/tags/release%2F0.1.0-beta.3...release%2F0.1.0-beta.2
 [0.1.0-beta.3]: https://gitlab.com/hmajid2301/composerisation/-/tags/release%2F0.1.0-beta.3...release%2F0.1.0-beta.2
