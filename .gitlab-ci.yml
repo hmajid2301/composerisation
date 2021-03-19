@@ -50,7 +50,7 @@ publish-docker:
   only:
     - /^release/.*$/
   before_script:
-    - apk add python3-dev
+    - apk add python3-dev py3-setuptools
     - python3 setup.py sdist
   script:
     - export VERSION_TAG=$(cat setup.py | grep version | head -1 | awk -F= '{ print $2 }' | sed 's/[",]//g' | tr -d "'")
