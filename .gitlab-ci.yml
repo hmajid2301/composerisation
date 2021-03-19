@@ -13,18 +13,24 @@ stages:
 
 test:linter:
   stage: test
+  except:
+    - tags
   script:
     - pip install tox
     - make lint
 
 test:code-formatter:
   stage: test
+  except:
+    - tags
   script:
     - pip install tox
     - make code-formatter-check
 
 test:unit-tests:
   stage: test
+  except:
+    - tags
   script:
     - pip install tox
     - make tests
