@@ -68,7 +68,7 @@ You can also use the docker image to convert between docker-compose and Docker c
 Supported Command
 =================
 
-We support all commands specified in the docker-compose `reference file version 3.7 here <https://docs.docker.com/compose/compose-file/#reference-and-guidelines>`_.
+We support all commands specified in the docker-compose `reference file version 3.8 here <https://docs.docker.com/compose/compose-file/#reference-and-guidelines>`_.
 Besides from the config options defined below.
 
 Services
