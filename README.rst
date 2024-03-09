@@ -24,13 +24,6 @@ A CLI tool used to convert between docker-compose to normal Docker CLI commands.
 
 **Warning**: This project is still in beta.
 
-Demo
-----
-
-Instead of dowloading the tool you can use the `demo website <https://composerisation.haseebmajid.dev>`_. Simply paste
-your ``docker-compose.yml`` file and press convert then copy the contents from the second input box.
-
-**Warning**: The website is only for demo purposes, the code isn't particularly clean. This is not a web service but a CLI tool
 
 Usage
 -----
